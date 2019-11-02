@@ -42,9 +42,11 @@ Add the package to the registry:
 
 ```java{4}
 protected List<ReactPackage> getPackages() {
-  return Arrays.asList(
-    new MainReactPackage(),
-    new ReactNativeFirebaseStoragePackage(),
+          @SuppressWarnings("UnnecessaryLocalVariable")
+          List<ReactPackage> packages = new PackageList(this).getPackages();
+          // Packages that cannot be autolinked yet can be added manually here, for example:
+          packages.add(new ReactNativeFirebaseStoragePackage());
+          return packages;
 ```
 
 #### Rebuild the project
